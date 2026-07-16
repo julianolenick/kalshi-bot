@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalshi Trading Bot Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 Kalshi Trading Bot</h1>
+            <div class="header-info">
+                <span id="bot-status" class="status-badge stopped">Bot: Stopped</span>
+                <span id="last-update" class="timestamp">Last update: --</span>
+            </div>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="controls">
+                <button id="start-btn" class="btn btn-success">▶ Start Bot</button>
+                <button id="stop-btn" class="btn btn-danger">⏹ Stop Bot</button>
+            </div>
+        </section>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard">
+            <!-- Portfolio Section -->
+            <section class="card portfolio-card">
+                <h2>📊 Portfolio</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <label>Available Capital</label>
+                        <div class="value" id="available-capital">$200.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Daily P&L</label>
+                        <div class="value" id="daily-pnl">$0.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Total P&L</label>
+                        <div class="value" id="total-pnl">$0.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Trades Executed</label>
+                        <div class="value" id="trades-count">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Risk Management Section -->
+            <section class="card risk-card">
+                <h2>⚠️ Risk Management</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <label>Daily Loss Limit</label>
+                        <div class="value">-$50.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Daily Loss Remaining</label>
+                        <div class="value" id="loss-remaining">-$50.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Max Trade Size</label>
+                        <div class="value">$5.00</div>
+                    </div>
+                    <div class="metric">
+                        <label>Capital Percentage</label>
+                        <div class="value" id="capital-percentage">100%</div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="capital-progress" style="width: 100%"></div>
+                </div>
+            </section>
+
+            <!-- Bot Activity Section -->
+            <section class="card activity-card">
+                <h2>📈 Bot Activity</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <label>Markets Monitored</label>
+                        <div class="value" id="markets-monitored">0</div>
+                    </div>
+                    <div class="metric">
+                        <label>Signals Detected</label>
+                        <div class="value" id="signals-detected">0</div>
+                    </div>
+                    <div class="metric">
+                        <label>Trades Today</label>
+                        <div class="value" id="trades-today">0</div>
+                    </div>
+                    <div class="metric">
+                        <label>Last Check</label>
+                        <div class="value timestamp-small" id="last-check">--</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Recent Trades Section -->
+        <section class="card trades-card">
+            <h2>💰 Recent Trades</h2>
+            <div class="trades-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Market</th>
+                            <th>Signal</th>
+                            <th>Direction</th>
+                            <th>Size</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trades-tbody">
+                        <tr class="empty-state">
+                            <td colspan="6">No trades yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Configuration Section -->
+        <section class="card config-card">
+            <h2>⚙️ Configuration</h2>
+            <div class="config-grid">
+                <div class="config-item">
+                    <label>Whale Threshold</label>
+                    <span>$5,000+</span>
+                </div>
+                <div class="config-item">
+                    <label>Momentum Window</label>
+                    <span>5 minutes</span>
+                </div>
+                <div class="config-item">
+                    <label>Check Interval</label>
+                    <span>5 seconds</span>
+                </div>
+                <div class="config-item">
+                    <label>Starting Capital</label>
+                    <span>$200</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
